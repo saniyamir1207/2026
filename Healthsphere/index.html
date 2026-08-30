@@ -1,0 +1,6743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link
+    rel="manifest"
+    href="manifest.json">
+
+<meta
+    name="theme-color"
+    content="#07988d">
+
+<meta
+    name="mobile-web-app-capable"
+    content="yes">
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes">
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="default">
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="HealthSphere">
+
+    <!-- Leaflet Map CSS -->
+
+<!-- Leaflet Map JavaScript -->
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin="">
+</script>
+
+<body>
+
+
+    <!-- =========================================================
+     PWA STATUS BAR
+     ========================================================= -->
+
+<div
+    id="pwaStatusBar"
+    class="pwa-status-bar"
+    aria-live="polite">
+
+    <div class="pwa-status-content">
+
+        <span
+            id="pwaStatusDot"
+            class="pwa-status-dot">
+        </span>
+
+        <span id="pwaStatusText">
+            Checking connection...
+        </span>
+
+    </div>
+
+    <button
+        type="button"
+        id="pwaInstallButton"
+        class="pwa-install-button"
+        hidden>
+
+        Install App
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     PWA UPDATE NOTIFICATION
+     ========================================================= -->
+
+<div
+    id="pwaUpdateCard"
+    class="pwa-update-card"
+    hidden>
+
+    <div class="pwa-update-icon">
+        ↻
+    </div>
+
+    <div class="pwa-update-content">
+
+        <strong>
+            New version available
+        </strong>
+
+        <p>
+            HealthSphere has been updated.
+            Refresh to use the latest version.
+        </p>
+
+    </div>
+
+    <button
+        type="button"
+        id="pwaUpdateButton"
+        class="pwa-update-button">
+
+        Update
+
+    </button>
+
+</div>
+<!-- =========================================================
+     SPLASH SCREEN
+     ========================================================= -->
+
+<div
+    id="splash-screen"
+    class="splash-screen"
+    aria-label="Loading HealthSphere"
+>
+    <div class="splash-content">
+
+        <div class="splash-logo">+</div>
+
+        <div>
+            <h1>HealthSphere</h1>
+            <p>Care • Connect • Protect</p>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+
+    <div class="header-container">
+
+        <!-- BRAND -->
+
+        <a
+            href="#home"
+            class="brand"
+            aria-label="HealthSphere Home"
+        >
+
+            <div class="brand-icon">
+                +
+            </div>
+
+            <div class="brand-text">
+                <strong>HealthSphere</strong>
+
+                <span>
+                    CARE • CONNECT • PROTECT
+                </span>
+            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav
+            class="desktop-nav"
+            aria-label="Main navigation"
+        >
+
+            <a
+                href="#home"
+                class="nav-link active"
+            >
+                Home
+            </a>
+
+            <a
+                href="#features"
+                class="nav-link"
+            >
+                Features
+            </a>
+
+            <a
+                href="#health-check"
+                class="nav-link"
+            >
+                Health Check
+            </a>
+
+            <a
+                href="#health-monitoring"
+                class="nav-link"
+            >
+                Monitoring
+            </a>
+
+            <a
+                href="#reminders"
+                class="nav-link"
+            >
+                Reminders
+            </a>
+
+        </nav>
+
+
+        <!-- LANGUAGE -->
+
+        <button
+            class="language-button"
+            type="button"
+            aria-label="Change language"
+        >
+            ◉ EN
+        </button>
+
+
+        <!-- MOBILE MENU -->
+
+        <button
+            id="menu-toggle"
+            class="menu-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE NAVIGATION -->
+
+    <div
+        id="mobile-menu"
+        class="mobile-menu"
+    >
+
+        <a href="#home">Home</a>
+
+        <a href="#features">Features</a>
+
+        <a href="#health-check">Health Check</a>
+
+        <a href="#health-monitoring">Monitoring</a>
+
+        <a href="#reminders">Reminders</a>
+
+        <a href="#healthcare-map">
+            Find Healthcare
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     HERO SECTION
+     ========================================================= -->
+
+<section
+    id="home"
+    class="hero section"
+>
+
+    <div class="hero-background"></div>
+
+    <div class="hero-container">
+
+        <!-- HERO CONTENT -->
+
+        <div class="hero-content">
+
+            <div class="status-pill">
+
+                <span class="status-dot"></span>
+
+                <span>
+                    Your health, connected
+                </span>
+
+            </div>
+
+
+            <h1 class="hero-title">
+
+                Understand your health.
+
+                <span>
+                    Take action earlier.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                HealthSphere brings symptom awareness,
+                preventive care, health monitoring,
+                reminders and healthcare discovery
+                together in one simple experience.
+
+            </p>
+
+
+            <div class="hero-actions">
+
+                <button
+                    class="primary-button"
+                    type="button"
+                    data-action="health-check"
+                >
+                    Start Health Check
+
+                    <span>→</span>
+
+                </button>
+
+
+                <button
+                    class="secondary-button"
+                    type="button"
+                    data-action="explore"
+                >
+                    Explore HealthSphere
+                </button>
+
+            </div>
+
+
+            <div class="hero-trust">
+
+                <span class="trust-icon">
+                    ✓
+                </span>
+
+                <span>
+                    Designed for awareness,
+                    prevention and timely care
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+            <div class="health-orbit orbit-one"></div>
+
+            <div class="health-orbit orbit-two"></div>
+
+
+            <div class="health-card main-health-card">
+
+                <div class="health-card-top">
+
+                    <span>
+                        HEALTH OVERVIEW
+                    </span>
+
+                    <span class="live-dot">
+                        ●
+                    </span>
+
+                </div>
+
+
+                <div class="health-score">
+
+                    <div class="score-circle">
+
+                        <span>82</span>
+
+                        <small>/100</small>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Health Awareness
+                        </strong>
+
+                        <p>
+                            Stay consistent
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mini-health-bars">
+
+                    <div>
+                        <span>Monitoring</span>
+                        <i style="width:82%"></i>
+                    </div>
+
+                    <div>
+                        <span>Prevention</span>
+                        <i style="width:72%"></i>
+                    </div>
+
+                    <div>
+                        <span>Reminders</span>
+                        <i style="width:91%"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card floating-card-one">
+
+                <span class="floating-icon">
+                    ✓
+                </span>
+
+                <div>
+
+                    <strong>
+                        Daily Check
+                    </strong>
+
+                    <small>
+                        Stay aware
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card floating-card-two">
+
+                <span class="floating-icon">
+                    +
+                </span>
+
+                <div>
+
+                    <strong>
+                        Care Nearby
+                    </strong>
+
+                    <small>
+                        Find healthcare
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthSphere</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Understand your health. <span>Take action earlier.</span></h1>
+      <p>AI-powered preventive healthcare for rural communities.</p>
+      <a href="#symptom-checker" class="btn-primary">Start Health Check</a>
+    </div>
+  </section>
+
+  <!-- ================= SYMPTOM CHECKER ================= -->
+  <section id="symptom-checker" class="symptom-section">
+
+    <div class="section-title">
+      <span>SMART HEALTH CHECK</span>
+      <h2>Check your symptoms in 30 seconds</h2>
+      <p>Select the symptoms you are experiencing. This is an awareness tool, not a medical diagnosis.</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-card">
+      <div class="progress-top">
+        <span>Step 1 of 3</span>
+        <span id="progressText">0%</span>
+      </div>
+
+      <div class="progress-bar">
+        <div id="progressFill"></div>
+      </div>
+    </div>
+
+    <!-- Search -->
+    <div class="search-box">
+      <input
+        type="text"
+        id="symptomSearch"
+        placeholder="Search symptoms..."
+      />
+    </div>
+
+    <!-- Symptoms -->
+    <div class="symptom-grid" id="symptomGrid">
+
+      <button class="symptom-card" data-symptom="Fever">
+        🌡️
+        <strong>Fever</strong>
+        <small>High body temperature</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Cough">
+        😷
+        <strong>Cough</strong>
+        <small>Persistent cough</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Fatigue">
+        😴
+        <strong>Fatigue</strong>
+        <small>Extreme tiredness</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Headache">
+        🤕
+        <strong>Headache</strong>
+        <small>Head discomfort</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Sore throat">
+        🗣️
+        <strong>Sore Throat</strong>
+        <small>Throat irritation</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Runny nose">
+        🤧
+        <strong>Runny Nose</strong>
+        <small>Nasal discharge</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Breathing difficulty">
+        🫁
+        <strong>Breathing Difficulty</strong>
+        <small>Difficulty breathing</small>
+      </button>
+
+      <button class="symptom-card" data-symptom="Chest pain">
+        ❤️
+        <strong>Chest Pain</strong>
+        <small>Chest discomfort</small>
+      </button>
+
+    </div>
+
+    <!-- Selected -->
+    <div class="selected-box">
+      <h4>Selected Symptoms</h4>
+      <div id="selectedSymptoms" class="selected-list">
+        No symptoms selected
+      </div>
+    </div>
+
+    <!-- Button -->
+    <button id="analyzeBtn" class="analyze-btn">
+      Analyze Symptoms →
+    </button>
+
+    <!-- Result -->
+    <div id="resultCard" class="result-card hidden"></div>
+
+  </section>
+
+  
+
+</body>
+
+<!-- =========================================================
+     PART 25 — PREMIUM UI SYSTEM
+     ========================================================= -->
+
+<div
+    id="pageLoader"
+    class="page-loader">
+
+    <div class="loader-brand">
+
+        <div class="loader-logo">
+            HS
+        </div>
+
+        <div>
+
+            <strong>
+                HealthSphere
+            </strong>
+
+            <span>
+                Rural Healthcare • Digital Access
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="loader-progress">
+
+        <span></span>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST SYSTEM
+     ========================================================= -->
+
+<div
+    id="toastContainer"
+    class="toast-container"
+    aria-live="polite"
+    aria-atomic="true">
+</div>
+
+
+<!-- =========================================================
+     BACK TO TOP
+     ========================================================= -->
+
+<button
+    id="backToTop"
+    class="back-to-top"
+    type="button"
+    aria-label="Back to top">
+
+    ↑
+
+</button>
+</html>
+
+<!-- =========================================================
+     QUICK ACCESS
+     ========================================================= -->
+
+<section
+    id="features"
+    class="quick-section section"
+>
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <span class="eyebrow">
+                QUICK ACCESS
+            </span>
+
+            <h2>
+                What do you need today?
+            </h2>
+
+            <p>
+                Get to the right health tool in seconds.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <!-- SYMPTOM CHECKER -->
+
+            <button
+                class="feature-card"
+                type="button"
+                data-action="symptom-checker"
+            >
+
+                <div class="feature-icon teal">
+                    ✦
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        Symptom Checker
+                    </h3>
+
+                    <p>
+                        Explore symptoms and receive
+                        awareness-based next steps.
+                    </p>
+
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- FIRST AID -->
+
+            <button
+                class="feature-card"
+                type="button"
+                data-action="first-aid"
+            >
+
+                <div class="feature-icon coral">
+                    +
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        First Aid
+                    </h3>
+
+                    <p>
+                        Access basic safety and
+                        first-aid awareness.
+                    </p>
+
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- MONITORING -->
+
+            <button
+                class="feature-card"
+                type="button"
+                data-action="monitor"
+            >
+
+                <div class="feature-icon blue">
+                    ◫
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        Health Monitoring
+                    </h3>
+
+                    <p>
+                        Keep track of important
+                        health measurements.
+                    </p>
+
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+
+            </button>
+
+
+            <!-- HEALTHCARE MAP -->
+
+            <button
+                class="feature-card"
+                type="button"
+                data-action="map"
+            >
+
+                <div class="feature-icon purple">
+                    ⌖
+                </div>
+
+                <div class="feature-content">
+
+                    <h3>
+                        Find Healthcare
+                    </h3>
+
+                    <p>
+                        Discover nearby doctors,
+                        hospitals and facilities.
+                    </p>
+
+                </div>
+
+                <span class="feature-arrow">
+                    →
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PREMIUM SYMPTOM CHECKER
+     ========================================================= -->
+
+<!-- =========================================================
+     HEALTH MONITORING
+     ========================================================= -->
+
+
+<section id="health-monitoring" class="health-monitoring-section">
+
+    <div class="section-heading">
+
+        <span class="section-eyebrow">
+            HEALTH MONITORING
+        </span>
+
+        <h2>
+            Understand your
+            <span>health trends.</span>
+        </h2>
+
+        <p>
+            Record important health measurements, monitor changes
+            over time, and keep your health information organized.
+        </p>
+
+    </div>
+
+
+    <!-- HEALTH STATUS -->
+
+    <div class="health-status-banner">
+
+        <div class="health-status-indicator">
+            <span></span>
+        </div>
+
+        <div class="health-status-content">
+
+            <strong id="overallHealthStatus">
+                No readings yet
+            </strong>
+
+            <p id="overallHealthMessage">
+                Add a health reading below to begin monitoring.
+            </p>
+
+        </div>
+
+        <div class="health-status-badge" id="healthStatusBadge">
+            READY
+        </div>
+
+    </div>
+
+
+    <!-- MONITORING CARDS -->
+
+    <div class="health-monitor-grid">
+
+
+        <!-- BLOOD PRESSURE -->
+
+        <article class="health-monitor-card">
+
+            <div class="health-card-header">
+
+                <div class="health-card-icon bp-icon">
+                    ♥
+                </div>
+
+                <div>
+
+                    <span class="health-card-label">
+                        BLOOD PRESSURE
+                    </span>
+
+                    <h3>
+                        BP Tracking
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="health-input-row">
+
+                <div class="health-input-group">
+
+                    <label for="systolicInput">
+                        Systolic
+                    </label>
+
+                    <input
+                        type="number"
+                        id="systolicInput"
+                        placeholder="120"
+                        min="0"
+                    >
+
+                    <small>
+                        mmHg
+                    </small>
+
+                </div>
+
+
+                <div class="health-input-group">
+
+                    <label for="diastolicInput">
+                        Diastolic
+                    </label>
+
+                    <input
+                        type="number"
+                        id="diastolicInput"
+                        placeholder="80"
+                        min="0"
+                    >
+
+                    <small>
+                        mmHg
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="health-save-btn"
+                id="saveBPBtn"
+                type="button">
+
+                Save BP Reading
+                <span>→</span>
+
+            </button>
+
+
+            <div
+                class="health-result"
+                id="bpResult">
+
+                Waiting for reading...
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BLOOD GLUCOSE -->
+
+        <article class="health-monitor-card">
+
+            <div class="health-card-header">
+
+                <div class="health-card-icon glucose-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <span class="health-card-label">
+                        BLOOD GLUCOSE
+                    </span>
+
+                    <h3>
+                        Diabetes Tracking
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="health-input-group full">
+
+                <label for="glucoseInput">
+                    Glucose reading
+                </label>
+
+                <div class="health-number-input">
+
+                    <input
+                        type="number"
+                        id="glucoseInput"
+                        placeholder="100"
+                        min="0"
+                    >
+
+                    <span>
+                        mg/dL
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="health-save-btn"
+                id="saveGlucoseBtn"
+                type="button">
+
+                Save Glucose
+                <span>→</span>
+
+            </button>
+
+
+            <div
+                class="health-result"
+                id="glucoseResult">
+
+                Waiting for reading...
+
+            </div>
+
+        </article>
+
+
+
+        <!-- TEMPERATURE -->
+
+        <article class="health-monitor-card">
+
+            <div class="health-card-header">
+
+                <div class="health-card-icon temp-icon">
+                    °
+                </div>
+
+                <div>
+
+                    <span class="health-card-label">
+                        TEMPERATURE
+                    </span>
+
+                    <h3>
+                        Temperature Log
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="health-input-group full">
+
+                <label for="temperatureInput">
+                    Body temperature
+                </label>
+
+                <div class="health-number-input">
+
+                    <input
+                        type="number"
+                        id="temperatureInput"
+                        placeholder="98.6"
+                        step="0.1"
+                        min="0"
+                    >
+
+                    <span>
+                        °F
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="health-save-btn"
+                id="saveTemperatureBtn"
+                type="button">
+
+                Save Temperature
+                <span>→</span>
+
+            </button>
+
+
+            <div
+                class="health-result"
+                id="temperatureResult">
+
+                Waiting for reading...
+
+            </div>
+
+        </article>
+
+
+
+        <!-- WEIGHT -->
+
+        <article class="health-monitor-card">
+
+            <div class="health-card-header">
+
+                <div class="health-card-icon weight-icon">
+                    ◇
+                </div>
+
+                <div>
+
+                    <span class="health-card-label">
+                        BODY WEIGHT
+                    </span>
+
+                    <h3>
+                        Weight Tracking
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="health-input-group full">
+
+                <label for="weightInput">
+                    Current weight
+                </label>
+
+                <div class="health-number-input">
+
+                    <input
+                        type="number"
+                        id="weightInput"
+                        placeholder="60"
+                        step="0.1"
+                        min="0"
+                    >
+
+                    <span>
+                        kg
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="health-save-btn"
+                id="saveWeightBtn"
+                type="button">
+
+                Save Weight
+                <span>→</span>
+
+            </button>
+
+
+            <div
+                class="health-result"
+                id="weightResult">
+
+                Waiting for reading...
+
+            </div>
+
+        </article>
+
+    </div>
+
+
+
+    <!-- HISTORY -->
+
+    <div class="health-history-panel">
+
+        <div class="health-history-header">
+
+            <div>
+
+                <span class="health-card-label">
+                    HEALTH HISTORY
+                </span>
+
+                <h3>
+                    Recent readings
+                </h3>
+
+            </div>
+
+            <button
+                id="clearHealthHistory"
+                class="health-clear-btn"
+                type="button">
+
+                Clear history
+
+            </button>
+
+        </div>
+
+
+        <div
+            class="health-history-list"
+            id="healthHistoryList">
+
+            <div class="health-history-empty">
+
+                <div>
+                    +
+                </div>
+
+                <h4>
+                    No readings recorded
+                </h4>
+
+                <p>
+                    Your saved measurements will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DISCLAIMER -->
+
+    <div class="health-monitor-disclaimer">
+
+        <strong>
+            Health information notice
+        </strong>
+
+        <p>
+            This dashboard is designed for recording and organizing
+            health measurements. It does not diagnose diseases or
+            replace professional medical advice.
+        </p>
+
+    </div>
+
+    <!-- =========================================================
+     REMINDERS & PREVENTIVE CARE
+     ========================================================= -->
+
+<section id="reminders" class="reminders-section">
+
+    <div class="section-heading">
+
+        <span class="section-eyebrow">
+            PREVENTIVE CARE
+        </span>
+
+        <h2>
+            Stay ahead of your
+            <span>health routine.</span>
+        </h2>
+
+        <p>
+            Organize health checkups, monitoring tasks,
+            appointments, and preventive-care reminders
+            in one simple dashboard.
+        </p>
+
+    </div>
+
+
+    <!-- REMINDER OVERVIEW -->
+
+    <div class="reminder-overview">
+
+        <div class="reminder-overview-card">
+
+            <div class="reminder-overview-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <span>
+                    COMPLETED
+                </span>
+
+                <strong id="completedReminderCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="reminder-overview-card">
+
+            <div class="reminder-overview-icon pending">
+                ◷
+            </div>
+
+            <div>
+
+                <span>
+                    PENDING
+                </span>
+
+                <strong id="pendingReminderCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="reminder-overview-card">
+
+            <div class="reminder-overview-icon upcoming">
+                ✦
+            </div>
+
+            <div>
+
+                <span>
+                    UPCOMING
+                </span>
+
+                <strong id="upcomingReminderCount">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK REMINDER TYPES -->
+
+    <div class="reminder-quick-grid">
+
+
+        <button
+            type="button"
+            class="reminder-type-card"
+            data-reminder-type="Blood Pressure Check">
+
+            <div class="reminder-type-icon">
+                ♥
+            </div>
+
+            <div>
+
+                <span>
+                    MONITORING
+                </span>
+
+                <strong>
+                    Blood Pressure
+                </strong>
+
+                <small>
+                    Schedule a BP check
+                </small>
+
+            </div>
+
+            <b>
+                +
+            </b>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="reminder-type-card"
+            data-reminder-type="Blood Glucose Check">
+
+            <div class="reminder-type-icon glucose">
+                ✦
+            </div>
+
+            <div>
+
+                <span>
+                    MONITORING
+                </span>
+
+                <strong>
+                    Blood Glucose
+                </strong>
+
+                <small>
+                    Keep track of readings
+                </small>
+
+            </div>
+
+            <b>
+                +
+            </b>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="reminder-type-card"
+            data-reminder-type="Medicine Reminder">
+
+            <div class="reminder-type-icon medicine">
+                +
+            </div>
+
+            <div>
+
+                <span>
+                    MEDICATION
+                </span>
+
+                <strong>
+                    Medicine
+                </strong>
+
+                <small>
+                    Create a medicine reminder
+                </small>
+
+            </div>
+
+            <b>
+                +
+            </b>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="reminder-type-card"
+            data-reminder-type="Doctor Appointment">
+
+            <div class="reminder-type-icon doctor">
+                +
+            </div>
+
+            <div>
+
+                <span>
+                    APPOINTMENT
+                </span>
+
+                <strong>
+                    Doctor Visit
+                </strong>
+
+                <small>
+                    Never miss an appointment
+                </small>
+
+            </div>
+
+            <b>
+                +
+            </b>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="reminder-type-card"
+            data-reminder-type="Vaccination Reminder">
+
+            <div class="reminder-type-icon vaccine">
+                ✚
+            </div>
+
+            <div>
+
+                <span>
+                    PREVENTION
+                </span>
+
+                <strong>
+                    Vaccination
+                </strong>
+
+                <small>
+                    Track vaccination reminders
+                </small>
+
+            </div>
+
+            <b>
+                +
+            </b>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="reminder-type-card"
+            data-reminder-type="Polio Reminder">
+
+            <div class="reminder-type-icon child">
+                ♧
+            </div>
+
+            <div>
+
+                <span>
+                    CHILD HEALTH
+                </span>
+
+                <strong>
+                    Polio Reminder
+                </strong>
+
+                <small>
+                    Keep immunization reminders organized
+                </small>
+
+            </div>
+
+            <b>
+                +
+            </b>
+
+        </button>
+
+    </div>
+
+
+    <!-- CUSTOM REMINDER -->
+
+    <div class="reminder-create-panel">
+
+        <div class="reminder-create-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    CREATE REMINDER
+                </span>
+
+                <h3>
+                    Add a preventive-care task
+                </h3>
+
+                <p>
+                    Create a reminder for your personal
+                    health-management routine.
+                </p>
+
+            </div>
+
+            <div class="reminder-create-mark">
+                +
+            </div>
+
+        </div>
+
+
+        <form id="reminderForm">
+
+            <div class="reminder-form-grid">
+
+
+                <div class="reminder-field">
+
+                    <label for="reminderTitle">
+                        Reminder title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="reminderTitle"
+                        placeholder="e.g. BP check"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="reminder-field">
+
+                    <label for="reminderCategory">
+                        Category
+                    </label>
+
+                    <select id="reminderCategory">
+
+                        <option value="General">
+                            General
+                        </option>
+
+                        <option value="Monitoring">
+                            Health Monitoring
+                        </option>
+
+                        <option value="Medicine">
+                            Medicine
+                        </option>
+
+                        <option value="Appointment">
+                            Doctor Appointment
+                        </option>
+
+                        <option value="Vaccination">
+                            Vaccination
+                        </option>
+
+                        <option value="Child Health">
+                            Child Health
+                        </option>
+
+                        <option value="Polio">
+                            Polio
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="reminder-field">
+
+                    <label for="reminderDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="reminderDate"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="reminder-field">
+
+                    <label for="reminderTime">
+                        Time
+                    </label>
+
+                    <input
+                        type="time"
+                        id="reminderTime"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="reminder-field reminder-field-wide">
+
+                    <label for="reminderNote">
+                        Note
+                    </label>
+
+                    <textarea
+                        id="reminderNote"
+                        rows="3"
+                        placeholder="Add an optional note..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="reminder-form-actions">
+
+                <button
+                    type="reset"
+                    class="reminder-secondary-btn">
+
+                    Reset
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="reminder-primary-btn">
+
+                    Create Reminder
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- REMINDER LIST -->
+
+    <div class="reminder-list-panel">
+
+        <div class="reminder-list-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    YOUR ROUTINE
+                </span>
+
+                <h3>
+                    Health reminders
+                </h3>
+
+            </div>
+
+            <button
+                type="button"
+                id="clearCompletedReminders"
+                class="reminder-clear-btn">
+
+                Clear completed
+
+            </button>
+
+        </div>
+
+
+        <div
+            id="reminderList"
+            class="reminder-list">
+
+            <div class="reminder-empty">
+
+                <div class="reminder-empty-icon">
+                    ◷
+                </div>
+
+                <h4>
+                    No reminders yet
+                </h4>
+
+                <p>
+                    Add your first health reminder above.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PREVENTIVE CARE NOTE -->
+
+    <div class="preventive-care-note">
+
+        <div class="preventive-note-icon">
+            i
+        </div>
+
+        <div>
+
+            <strong>
+                Preventive-care information
+            </strong>
+
+            <p>
+                Reminder dates are for organizing your
+                healthcare routine. Vaccination and
+                treatment schedules should be verified
+                with an authorized healthcare professional
+                and applicable official health guidelines.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <div class="brand-icon small">
+                +
+            </div>
+
+            <div>
+
+                <strong>
+                    HealthSphere
+                </strong>
+
+                <span>
+                    Care • Connect • Protect
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#health-check">
+                Health Check
+            </a>
+
+            <a href="#health-monitoring">
+                Monitoring
+            </a>
+
+            <a href="#healthcare-map">
+                Healthcare
+            </a>
+
+        </div>
+
+
+        <p class="footer-note">
+
+            Built for healthcare awareness,
+            prevention and timely action.
+
+        </p>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 HealthSphere
+            </span>
+
+            <span>
+                Front-end prototype
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- =========================================================
+     REMINDERS
+     ========================================================= -->
+
+<section
+    id="reminders"
+    class="reminders-section section"
+>
+
+    <div class="section-container">
+
+        <div class="reminders-layout">
+
+
+            <div>
+
+                <span class="eyebrow">
+                    PREVENTION
+                </span>
+
+                <h2>
+                    Don't miss important
+                    health reminders.
+                </h2>
+
+                <p>
+                    Build a future-ready reminder
+                    system for checkups, vaccinations,
+                    health monitoring and preventive care.
+                </p>
+
+            </div>
+
+
+            <div class="reminder-preview">
+
+
+                <div class="reminder-item">
+
+                    <div class="reminder-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Health Check
+                        </strong>
+
+                        <span>
+                            Schedule regular checkups
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reminder-item">
+
+                    <div class="reminder-icon">
+                        +
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Vaccination
+                        </strong>
+
+                        <span>
+                            Track vaccination schedules
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reminder-item">
+
+                    <div class="reminder-icon">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Health Monitoring
+                        </strong>
+
+                        <span>
+                            Maintain regular measurements
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reminder-item">
+
+                    <div class="reminder-icon">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Child Immunisation
+                        </strong>
+
+                        <span>
+                            Keep vaccination schedules organised
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="reminder-item">
+
+                    <div class="reminder-icon">
+                        ♥
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            BP / Diabetes Review
+                        </strong>
+
+                        <span>
+                            Remember regular health reviews
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HEALTHCARE MAP / FIND NEARBY CARE
+     ========================================================= -->
+
+<section id="healthcare-map" class="healthcare-map-section">
+
+    <div class="section-heading">
+
+        <span class="section-eyebrow">
+            FIND CARE
+        </span>
+
+        <h2>
+            Healthcare,
+            <span>closer to you.</span>
+        </h2>
+
+        <p>
+            Discover nearby hospitals, clinics, pharmacies,
+            diagnostic centres and emergency facilities
+            through one simple healthcare discovery interface.
+        </p>
+
+    </div>
+
+
+    <!-- MAP SEARCH PANEL -->
+
+    <div class="healthcare-map-container">
+
+        <div class="healthcare-search-panel">
+
+            <div class="healthcare-search-heading">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        HEALTHCARE LOCATOR
+                    </span>
+
+                    <h3>
+                        Find healthcare near you
+                    </h3>
+
+                </div>
+
+                <div class="location-status" id="locationStatus">
+
+                    <span class="location-dot"></span>
+
+                    Location ready
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH -->
+
+            <div class="healthcare-search-box">
+
+                <div class="search-input-wrapper">
+
+                    <span class="search-icon">
+                        ⌕
+                    </span>
+
+                    <input
+                        type="text"
+                        id="healthcareSearch"
+                        placeholder="Search hospital, clinic, pharmacy..."
+                        autocomplete="off"
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="useLocationBtn"
+                    class="location-button">
+
+                    <span>
+                        ◎
+                    </span>
+
+                    Use my location
+
+                </button>
+
+            </div>
+
+
+            <!-- CATEGORY FILTERS -->
+
+            <div class="healthcare-category-list">
+
+                <button
+                    type="button"
+                    class="healthcare-category active"
+                    data-category="all">
+
+                    <span class="category-icon">
+                        ✦
+                    </span>
+
+                    <span>
+                        All
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="healthcare-category"
+                    data-category="hospital">
+
+                    <span class="category-icon">
+                        +
+                    </span>
+
+                    <span>
+                        Hospitals
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="healthcare-category"
+                    data-category="clinic">
+
+                    <span class="category-icon">
+                        ♡
+                    </span>
+
+                    <span>
+                        Clinics
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="healthcare-category"
+                    data-category="pharmacy">
+
+                    <span class="category-icon">
+                        ✚
+                    </span>
+
+                    <span>
+                        Pharmacy
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="healthcare-category"
+                    data-category="diagnostic">
+
+                    <span class="category-icon">
+                        ◈
+                    </span>
+
+                    <span>
+                        Diagnostics
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="healthcare-category"
+                    data-category="emergency">
+
+                    <span class="category-icon">
+                        !
+                    </span>
+
+                    <span>
+                        Emergency
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <!-- MAP PLACEHOLDER -->
+
+            <div
+                class="healthcare-map-preview"
+                id="healthcareMapPreview">
+
+                <div class="map-grid"></div>
+
+                <div class="map-road road-one"></div>
+
+                <div class="map-road road-two"></div>
+
+                <div class="map-road road-three"></div>
+
+
+                <div class="map-area-label area-one">
+                    Healthcare Zone
+                </div>
+
+                <div class="map-area-label area-two">
+                    Central Area
+                </div>
+
+
+                <!-- MAP MARKERS -->
+
+                <button
+                    type="button"
+                    class="map-marker marker-one"
+                    data-place="City Care Hospital">
+
+                    <span>
+                        +
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="map-marker marker-two"
+                    data-place="Wellness Clinic">
+
+                    <span>
+                        ♡
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="map-marker marker-three"
+                    data-place="LifeLine Pharmacy">
+
+                    <span>
+                        ✚
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="map-marker marker-four"
+                    data-place="Diagnostic Centre">
+
+                    <span>
+                        ◈
+                    </span>
+
+                </button>
+
+
+                <!-- CURRENT LOCATION -->
+
+                <div
+                    class="current-location-marker"
+                    id="currentLocationMarker">
+
+                    <span></span>
+
+                </div>
+
+
+                <!-- MAP OVERLAY -->
+
+                <div class="map-overlay-card">
+
+                    <span class="section-eyebrow">
+                        MAP VIEW
+                    </span>
+
+                    <strong>
+                        Nearby healthcare
+                    </strong>
+
+                    <small>
+                        Map integration ready
+                    </small>
+
+                </div>
+
+
+                <div class="map-controls">
+
+                    <button
+                        type="button"
+                        id="zoomInBtn"
+                        aria-label="Zoom in">
+
+                        +
+
+                    </button>
+
+                    <button
+                        type="button"
+                        id="zoomOutBtn"
+                        aria-label="Zoom out">
+
+                        −
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULTS PANEL -->
+
+        <div class="healthcare-results-panel">
+
+            <div class="healthcare-results-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        NEARBY RESULTS
+                    </span>
+
+                    <h3>
+                        Recommended care
+                    </h3>
+
+                </div>
+
+                <span
+                    class="results-count"
+                    id="healthcareResultsCount">
+
+                    6 places
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="healthcare-results-list"
+                id="healthcareResultsList">
+
+
+                <!-- RESULT 1 -->
+
+                <article
+                    class="healthcare-place-card"
+                    data-type="hospital"
+                    data-name="City Care Hospital">
+
+                    <div class="place-icon hospital">
+                        +
+                    </div>
+
+                    <div class="place-information">
+
+                        <div class="place-title-row">
+
+                            <h4>
+                                City Care Hospital
+                            </h4>
+
+                            <span class="place-status open">
+                                Open
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Multi-speciality hospital
+                        </p>
+
+                        <div class="place-meta">
+
+                            <span>
+                                1.2 km
+                            </span>
+
+                            <span>
+                                Emergency
+                            </span>
+
+                        </div>
+
+                        <div class="place-actions">
+
+                            <button
+                                type="button"
+                                class="place-direction-btn"
+                                data-place="City Care Hospital">
+
+                                Directions
+                                →
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="place-details-btn"
+                                data-place="City Care Hospital">
+
+                                Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RESULT 2 -->
+
+                <article
+                    class="healthcare-place-card"
+                    data-type="clinic"
+                    data-name="Wellness Clinic">
+
+                    <div class="place-icon clinic">
+                        ♡
+                    </div>
+
+                    <div class="place-information">
+
+                        <div class="place-title-row">
+
+                            <h4>
+                                Wellness Clinic
+                            </h4>
+
+                            <span class="place-status open">
+                                Open
+                            </span>
+
+                        </div>
+
+                        <p>
+                            General healthcare clinic
+                        </p>
+
+                        <div class="place-meta">
+
+                            <span>
+                                1.8 km
+                            </span>
+
+                            <span>
+                                Consultation
+                            </span>
+
+                        </div>
+
+                        <div class="place-actions">
+
+                            <button
+                                type="button"
+                                class="place-direction-btn"
+                                data-place="Wellness Clinic">
+
+                                Directions
+                                →
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="place-details-btn"
+                                data-place="Wellness Clinic">
+
+                                Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RESULT 3 -->
+
+                <article
+                    class="healthcare-place-card"
+                    data-type="pharmacy"
+                    data-name="LifeLine Pharmacy">
+
+                    <div class="place-icon pharmacy">
+                        ✚
+                    </div>
+
+                    <div class="place-information">
+
+                        <div class="place-title-row">
+
+                            <h4>
+                                LifeLine Pharmacy
+                            </h4>
+
+                            <span class="place-status open">
+                                Open
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Pharmacy & healthcare essentials
+                        </p>
+
+                        <div class="place-meta">
+
+                            <span>
+                                0.9 km
+                            </span>
+
+                            <span>
+                                Pharmacy
+                            </span>
+
+                        </div>
+
+                        <div class="place-actions">
+
+                            <button
+                                type="button"
+                                class="place-direction-btn"
+                                data-place="LifeLine Pharmacy">
+
+                                Directions
+                                →
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="place-details-btn"
+                                data-place="LifeLine Pharmacy">
+
+                                Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RESULT 4 -->
+
+                <article
+                    class="healthcare-place-card"
+                    data-type="diagnostic"
+                    data-name="Diagnostic Centre">
+
+                    <div class="place-icon diagnostic">
+                        ◈
+                    </div>
+
+                    <div class="place-information">
+
+                        <div class="place-title-row">
+
+                            <h4>
+                                Diagnostic Centre
+                            </h4>
+
+                            <span class="place-status open">
+                                Open
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Laboratory & diagnostic services
+                        </p>
+
+                        <div class="place-meta">
+
+                            <span>
+                                2.1 km
+                            </span>
+
+                            <span>
+                                Diagnostics
+                            </span>
+
+                        </div>
+
+                        <div class="place-actions">
+
+                            <button
+                                type="button"
+                                class="place-direction-btn"
+                                data-place="Diagnostic Centre">
+
+                                Directions
+                                →
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="place-details-btn"
+                                data-place="Diagnostic Centre">
+
+                                Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RESULT 5 -->
+
+                <article
+                    class="healthcare-place-card"
+                    data-type="emergency"
+                    data-name="Emergency Care Centre">
+
+                    <div class="place-icon emergency">
+                        !
+                    </div>
+
+                    <div class="place-information">
+
+                        <div class="place-title-row">
+
+                            <h4>
+                                Emergency Care Centre
+                            </h4>
+
+                            <span class="place-status open">
+                                24/7
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Emergency medical services
+                        </p>
+
+                        <div class="place-meta">
+
+                            <span>
+                                2.5 km
+                            </span>
+
+                            <span>
+                                Emergency
+                            </span>
+
+                        </div>
+
+                        <div class="place-actions">
+
+                            <button
+                                type="button"
+                                class="place-direction-btn"
+                                data-place="Emergency Care Centre">
+
+                                Directions
+                                →
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="place-details-btn"
+                                data-place="Emergency Care Centre">
+
+                                Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RESULT 6 -->
+
+                <article
+                    class="healthcare-place-card"
+                    data-type="hospital"
+                    data-name="Community Health Hospital">
+
+                    <div class="place-icon hospital">
+                        +
+                    </div>
+
+                    <div class="place-information">
+
+                        <div class="place-title-row">
+
+                            <h4>
+                                Community Health Hospital
+                            </h4>
+
+                            <span class="place-status open">
+                                Open
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Community healthcare services
+                        </p>
+
+                        <div class="place-meta">
+
+                            <span>
+                                3.4 km
+                            </span>
+
+                            <span>
+                                General Care
+                            </span>
+
+                        </div>
+
+                        <div class="place-actions">
+
+                            <button
+                                type="button"
+                                class="place-direction-btn"
+                                data-place="Community Health Hospital">
+
+                                Directions
+                                →
+
+                            </button>
+
+                            <button
+                                type="button"
+                                class="place-details-btn"
+                                data-place="Community Health Hospital">
+
+                                Details
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+
+            <!-- NO RESULTS -->
+
+            <div
+                class="healthcare-no-results"
+                id="healthcareNoResults">
+
+                <div>
+                    ⌕
+                </div>
+
+                <h4>
+                    No matching healthcare facilities
+                </h4>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- MAP API NOTE -->
+
+    <div class="healthcare-map-note">
+
+        <div class="map-note-icon">
+            ◎
+        </div>
+
+        <div>
+
+            <strong>
+                Live map integration
+            </strong>
+
+            <p>
+                This frontend is prepared for integration
+                with a real maps and places service.
+                Live facility information, distance,
+                availability and directions should be
+                retrieved from a verified service before
+                production deployment.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- =========================================================
+     HEALTHCARE MAP
+     ========================================================= -->
+
+<section
+    id="healthcare-map"
+    class="healthcare-map-section">
+
+    <div class="healthcare-map-container">
+
+        <!-- HEADER -->
+
+        <div class="healthcare-map-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    HEALTHCARE ACCESS
+                </span>
+
+                <h2>
+                    Find healthcare
+                    <span>near you.</span>
+                </h2>
+
+                <p>
+                    Locate nearby hospitals, clinics and
+                    pharmacies through an interactive map.
+                </p>
+
+            </div>
+
+            <button
+                type="button"
+                id="locateUserButton"
+                class="map-location-button">
+
+                <span>⌖</span>
+
+                Use My Location
+
+            </button>
+
+        </div>
+
+
+        <!-- MAP LAYOUT -->
+
+        <div class="healthcare-map-layout">
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="map-sidebar">
+
+                <div class="map-search-box">
+
+                    <label
+                        for="healthcareSearch">
+
+                        Search healthcare
+
+                    </label>
+
+                    <div class="map-search-input">
+
+                        <span>
+                            ⌕
+                        </span>
+
+                        <input
+                            type="text"
+                            id="healthcareSearch"
+                            placeholder="Search hospital, clinic..."
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- FILTERS -->
+
+                <div class="map-filters">
+
+                    <button
+                        type="button"
+                        class="map-filter active"
+                        data-category="all">
+
+                        All
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="map-filter"
+                        data-category="hospital">
+
+                        Hospitals
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="map-filter"
+                        data-category="clinic">
+
+                        Clinics
+
+                    </button>
+
+                    <button
+                        type="button"
+                        class="map-filter"
+                        data-category="pharmacy">
+
+                        Pharmacies
+
+                    </button>
+
+                </div>
+
+
+                <!-- RESULTS -->
+
+                <div
+                    id="healthcareResults"
+                    class="healthcare-results">
+                </div>
+
+            </aside>
+
+
+            <!-- MAP -->
+
+            <div class="map-wrapper">
+
+                <div
+                    id="healthcareMap"
+                    class="healthcare-map">
+                </div>
+
+
+                <div class="map-status">
+
+                    <span
+                        id="mapStatusDot">
+                    </span>
+
+                    <span
+                        id="mapStatusText">
+
+                        Map ready
+
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>  
+</section>
+
+<!-- =========================================================
+     PRIVACY
+     ========================================================= -->
+
+<section
+    class="privacy-section section"
+>
+
+    <div class="section-container">
+
+        <div class="privacy-card">
+
+            <div class="privacy-icon">
+                ◉
+            </div>
+
+            <div>
+
+                <span class="eyebrow">
+                    PRIVACY FIRST
+                </span>
+
+                <h2>
+                    Your health information
+                    deserves care.
+                </h2>
+
+                <p>
+                    HealthSphere's front end is designed
+                    with privacy, transparency and
+                    responsible health awareness in mind.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     HEALTH CHECK / SYMPTOM CHECKER
+     HealthSphere Frontend
+     ========================================================= -->
+
+<section id="health-check" class="health-check-section">
+
+    <div class="health-check-container">
+
+        <!-- Section Header -->
+        <div class="health-check-header">
+
+            <span class="section-eyebrow">
+                ✦ HEALTH CHECK
+            </span>
+
+            <h2>
+                Let's understand
+                <span>what you're feeling.</span>
+            </h2>
+
+            <p>
+                Select your symptoms one at a time.
+                HealthSphere provides awareness-based guidance
+                and suggests an appropriate next step.
+            </p>
+
+        </div>
+
+
+        <!-- Health Check Card -->
+        <div class="symptom-checker-card" id="symptomChecker">
+
+            <!-- Progress -->
+            <div class="symptom-progress-area">
+
+                <div class="progress-info">
+                    <span id="symptomStep">
+                        Health Check · Step 1 of 5
+                    </span>
+
+                    <span id="symptomProgressText">
+                        20%
+                    </span>
+                </div>
+
+                <div class="progress-track">
+                    <div
+                        class="progress-fill"
+                        id="symptomProgress"
+                        style="width:20%;">
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Question -->
+            <div class="symptom-question-area">
+
+                <div class="question-icon">
+                    ✦
+                </div>
+
+                <h3 id="symptomQuestion">
+                    Are you experiencing any pain or discomfort?
+                </h3>
+
+                <p id="symptomDescription">
+                    Choose the option that best describes
+                    what you are experiencing.
+                </p>
+
+            </div>
+
+
+            <!-- Symptom Options -->
+            <div
+                class="symptom-options"
+                id="symptomOptions">
+
+                <button
+                    type="button"
+                    class="symptom-option"
+                    data-symptom="pain">
+
+                    <span class="option-icon">+</span>
+
+                    <span class="option-content">
+                        <strong>Yes, I have discomfort</strong>
+                        <small>
+                            I am experiencing pain or unusual discomfort.
+                        </small>
+                    </span>
+
+                    <span class="option-arrow">→</span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="symptom-option"
+                    data-symptom="no-pain">
+
+                    <span class="option-icon">✓</span>
+
+                    <span class="option-content">
+                        <strong>No significant discomfort</strong>
+                        <small>
+                            I currently feel generally comfortable.
+                        </small>
+                    </span>
+
+                    <span class="option-arrow">→</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Selected Symptoms -->
+            <div
+                class="selected-symptoms"
+                id="selectedSymptoms">
+
+                <!-- JavaScript will insert selected symptoms here -->
+
+            </div>
+
+
+            <!-- Navigation -->
+            <div class="symptom-navigation">
+
+                <button
+                    type="button"
+                    class="health-btn secondary"
+                    id="symptomBack">
+
+                    ← Back
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="health-btn primary"
+                    id="symptomNext">
+
+                    Continue
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+
+            <!-- Safety Notice -->
+            <div class="health-safety-note">
+
+                <span class="safety-icon">i</span>
+
+                <p>
+                    This tool is for health awareness only.
+                    It does not provide a medical diagnosis.
+                    For concerning or worsening symptoms,
+                    consult a qualified healthcare professional.
+                </p>
+<section id="health-check" class="section health-check-section">
+
+    <div class="section-header">
+        <span class="eyebrow">Health Check</span>
+
+        <h2>
+            Understand what you're experiencing.
+        </h2>
+
+        <p>
+            Select your symptoms to receive awareness-based guidance
+            and an appropriate next step.
+        </p>
+    </div>
+
+    <div class="health-check-card">
+
+        <div class="health-check-top">
+            <div>
+                <span class="step-label">HEALTH CHECK</span>
+                <h3 id="health-check-title">
+                    Select your symptoms
+                </h3>
+            </div>
+
+            <div class="progress-info">
+                <span id="health-check-step">Step 1 of 5</span>
+                <span id="health-check-percent">20%</span>
+            </div>
+        </div>
+
+        <div class="progress-track">
+            <div
+                id="health-check-progress"
+                class="progress-fill"
+                style="width:20%">
+            </div>
+        </div>
+
+        <!-- STEP 1 -->
+
+        <div
+            id="health-check-step-1"
+            class="health-check-step active"
+        >
+
+            <h3>Are you experiencing any pain or discomfort?</h3>
+
+            <p>
+                Choose the option that best describes what you're experiencing.
+            </p>
+
+            <div class="health-option-grid">
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="discomfort"
+                >
+                    <span class="option-icon">+</span>
+
+                    <span>
+                        <strong>Yes, I have discomfort</strong>
+                        <small>
+                            I am experiencing pain or unusual discomfort.
+                        </small>
+                    </span>
+
+                    <span>→</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="no-discomfort"
+                >
+                    <span class="option-icon">✓</span>
+
+                    <span>
+                        <strong>No significant discomfort</strong>
+                        <small>
+                            I currently feel generally comfortable.
+                        </small>
+                    </span>
+
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div
+            id="health-check-step-2"
+            class="health-check-step"
+            hidden
+        >
+            <h3>How long have you noticed the symptoms?</h3>
+
+            <div class="health-option-grid">
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="today"
+                >
+                    <strong>Today</strong>
+                    <span>Started recently</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="few-days"
+                >
+                    <strong>A few days</strong>
+                    <span>Recent symptoms</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="longer"
+                >
+                    <strong>Longer</strong>
+                    <span>More than a few days</span>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div
+            id="health-check-step-3"
+            class="health-check-step"
+            hidden
+        >
+            <h3>How are your symptoms changing?</h3>
+
+            <div class="health-option-grid">
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="improving"
+                >
+                    <strong>Improving</strong>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="same"
+                >
+                    <strong>About the same</strong>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="worsening"
+                >
+                    <strong>Getting worse</strong>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- STEP 4 -->
+
+        <div
+            id="health-check-step-4"
+            class="health-check-step"
+            hidden
+        >
+            <h3>How much is this affecting your daily activities?</h3>
+
+            <div class="health-option-grid">
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="mild"
+                >
+                    <strong>Mild</strong>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="moderate"
+                >
+                    <strong>Moderate</strong>
+                </button>
+
+                <button
+                    type="button"
+                    class="health-option"
+                    data-health-answer="significant"
+                >
+                    <strong>Significant</strong>
+                </button>
+
+            </div>
+        </div>
+
+        <!-- STEP 5 -->
+
+        <div
+            id="health-check-step-5"
+            class="health-check-step"
+            hidden
+        >
+            <h3>Health Check Summary</h3>
+
+            <div id="health-check-result">
+                <p>
+                    Your responses have been recorded.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                id="health-check-restart"
+                class="primary-btn"
+            >
+                Start Again
+            </button>
+        </div>
+
+        <div class="health-check-actions">
+
+            <button
+                type="button"
+                id="health-check-back"
+                class="secondary-btn"
+            >
+                ← Back
+            </button>
+
+            <button
+                type="button"
+                id="health-check-continue"
+                class="primary-btn"
+            >
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+    <p class="health-disclaimer">
+        HealthSphere provides general health-awareness information and
+        does not replace professional medical advice.
+    </p>
+
+</section>
+            </div>
+
+        </div>
+      
+
+        <!-- =====================================================
+             RISK LEVELS
+             ===================================================== -->
+
+        <div class="risk-guide">
+
+            <div class="risk-guide-header">
+
+                <span class="section-eyebrow">
+                    ✦ YOUR NEXT STEP
+                </span>
+
+                <h3>
+                    Understand your health signal
+                </h3>
+
+                <p>
+                    HealthSphere uses simple awareness indicators
+                    to help you understand what action may be appropriate.
+                </p>
+
+            </div>
+
+
+            <div class="risk-cards">
+
+                <!-- GREEN -->
+                <div class="risk-card green">
+
+                    <div class="risk-dot"></div>
+
+                    <div>
+                        <strong>Green · Awareness</strong>
+
+                        <p>
+                            No immediate concern detected from
+                            the selected information.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- YELLOW -->
+                <div class="risk-card yellow">
+
+                    <div class="risk-dot"></div>
+
+                    <div>
+                        <strong>Yellow · Monitor</strong>
+
+                        <p>
+                            Consider monitoring your symptoms
+                            and seeking professional advice if they continue.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- RED -->
+                <div class="risk-card red">
+
+                    <div class="risk-dot"></div>
+
+                    <div>
+                        <strong>Red · Seek Care</strong>
+
+                        <p>
+                            Concerning information may require
+                            prompt consultation with a healthcare professional.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             RESULT AREA
+             ===================================================== -->
+
+        <div
+            class="symptom-result"
+            id="symptomResult"
+            hidden>
+
+            <div class="result-icon">
+                ✓
+            </div>
+
+            <span class="section-eyebrow">
+                HEALTH CHECK RESULT
+            </span>
+
+            <h3 id="resultTitle">
+                Your health awareness summary
+            </h3>
+
+            <p id="resultMessage">
+                Your responses have been reviewed.
+            </p>
+
+
+            <div
+                class="result-risk"
+                id="resultRisk">
+
+                <span class="result-risk-dot"></span>
+
+                <strong id="resultRiskText">
+                    Green · Awareness
+                </strong>
+
+            </div>
+
+
+            <div class="result-actions">
+
+                <button
+                    type="button"
+                    class="health-btn primary"
+                    id="restartSymptomCheck">
+
+                    Check Again
+                    <span>↻</span>
+
+                </button>
+
+                <button
+                    type="button"
+                    class="health-btn secondary"
+                    id="findHealthcare">
+
+                    Find Healthcare
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FIRST AID ACCESS
+     ========================================================= -->
+
+<section id="first-aid" class="first-aid-section">
+
+    <div class="section-heading">
+        <span class="section-eyebrow">FIRST AID ACCESS</span>
+
+        <h2>
+            Quick guidance when
+            <span>you need it most.</span>
+        </h2>
+
+        <p>
+            Access simple, awareness-focused first-aid guidance
+            for common situations and learn what to do next.
+        </p>
+    </div>
+
+    <!-- Emergency Notice -->
+
+    <div class="first-aid-alert">
+
+        <div class="alert-icon">!</div>
+
+        <div class="alert-content">
+            <strong>Emergency?</strong>
+
+            <p>
+                First-aid information is not a substitute for
+                professional medical care. For serious or
+                life-threatening situations, contact local emergency
+                services immediately.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Search -->
+
+    <div class="first-aid-toolbar">
+
+        <div class="first-aid-search">
+
+            <span>⌕</span>
+
+            <input
+                type="text"
+                id="firstAidSearch"
+                placeholder="Search first-aid topics..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- Categories -->
+
+    <div class="first-aid-categories">
+
+        <button
+            class="first-aid-filter active"
+            data-category="all"
+            type="button">
+            All
+        </button>
+
+        <button
+            class="first-aid-filter"
+            data-category="injury"
+            type="button">
+            Injuries
+        </button>
+
+        <button
+            class="first-aid-filter"
+            data-category="burn"
+            type="button">
+            Burns
+        </button>
+
+        <button
+            class="first-aid-filter"
+            data-category="breathing"
+            type="button">
+            Breathing
+        </button>
+
+        <button
+            class="first-aid-filter"
+            data-category="general"
+            type="button">
+            General
+        </button>
+
+    </div>
+
+
+    <!-- First Aid Cards -->
+
+    <div
+        class="first-aid-grid"
+        id="firstAidGrid">
+
+
+        <!-- Card 1 -->
+
+        <article
+            class="first-aid-card"
+            data-category="injury"
+            data-title="minor cuts and wounds">
+
+            <div class="first-aid-card-top">
+
+                <div class="first-aid-icon">
+                    +
+                </div>
+
+                <span class="first-aid-tag">
+                    INJURY
+                </span>
+
+            </div>
+
+            <h3>
+                Minor cuts & wounds
+            </h3>
+
+            <p>
+                Basic awareness steps for caring for a
+                minor cut or superficial wound.
+            </p>
+
+            <button
+                class="first-aid-view"
+                type="button"
+                data-aid="cut">
+                View guidance
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- Card 2 -->
+
+        <article
+            class="first-aid-card"
+            data-category="burn"
+            data-title="minor burns">
+
+            <div class="first-aid-card-top">
+
+                <div class="first-aid-icon">
+                    ◇
+                </div>
+
+                <span class="first-aid-tag">
+                    BURNS
+                </span>
+
+            </div>
+
+            <h3>
+                Minor burns
+            </h3>
+
+            <p>
+                General first-aid awareness for a small
+                superficial burn.
+            </p>
+
+            <button
+                class="first-aid-view"
+                type="button"
+                data-aid="burn">
+                View guidance
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- Card 3 -->
+
+        <article
+            class="first-aid-card"
+            data-category="general"
+            data-title="nosebleed">
+
+            <div class="first-aid-card-top">
+
+                <div class="first-aid-icon">
+                    ◌
+                </div>
+
+                <span class="first-aid-tag">
+                    GENERAL
+                </span>
+
+            </div>
+
+            <h3>
+                Nosebleed
+            </h3>
+
+            <p>
+                Simple awareness guidance for managing
+                a common nosebleed.
+            </p>
+
+            <button
+                class="first-aid-view"
+                type="button"
+                data-aid="nosebleed">
+                View guidance
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- Card 4 -->
+
+        <article
+            class="first-aid-card"
+            data-category="breathing"
+            data-title="breathing difficulty">
+
+            <div class="first-aid-card-top">
+
+                <div class="first-aid-icon">
+                    ≋
+                </div>
+
+                <span class="first-aid-tag">
+                    URGENT
+                </span>
+
+            </div>
+
+            <h3>
+                Breathing difficulty
+            </h3>
+
+            <p>
+                Recognize when breathing problems require
+                urgent professional attention.
+            </p>
+
+            <button
+                class="first-aid-view"
+                type="button"
+                data-aid="breathing">
+                View guidance
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- Card 5 -->
+
+        <article
+            class="first-aid-card"
+            data-category="injury"
+            data-title="sprain strain">
+
+            <div class="first-aid-card-top">
+
+                <div class="first-aid-icon">
+                    +
+                </div>
+
+                <span class="first-aid-tag">
+                    INJURY
+                </span>
+
+            </div>
+
+            <h3>
+                Sprain or strain
+            </h3>
+
+            <p>
+                Basic awareness guidance for a suspected
+                minor sprain or strain.
+            </p>
+
+            <button
+                class="first-aid-view"
+                type="button"
+                data-aid="sprain">
+                View guidance
+                <span>→</span>
+            </button>
+
+        </article>
+
+
+        <!-- Card 6 -->
+
+        <article
+            class="first-aid-card"
+            data-category="general"
+            data-title="fainting">
+
+            <div class="first-aid-card-top">
+
+                <div class="first-aid-icon">
+                    ✦
+                </div>
+
+                <span class="first-aid-tag">
+                    GENERAL
+                </span>
+
+            </div>
+
+            <h3>
+                Fainting
+            </h3>
+
+            <p>
+                Awareness-focused steps for responding when
+                someone briefly loses consciousness.
+            </p>
+
+            <button
+                class="first-aid-view"
+                type="button"
+                data-aid="fainting">
+                View guidance
+                <span>→</span>
+            </button>
+
+        </article>
+
+    </div>
+
+
+    <!-- No Results -->
+
+    <div
+        class="first-aid-empty"
+        id="firstAidEmpty">
+
+        <div>⌕</div>
+
+        <h3>
+            No guidance found
+        </h3>
+
+        <p>
+            Try another search term or category.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RISK ENGINE
+========================================================= -->
+
+<section id="risk-engine" class="risk-engine-section">
+
+    <div class="risk-container">
+
+        <!-- Header -->
+        <div class="risk-heading">
+
+            <span class="risk-eyebrow">
+                SMART HEALTH AWARENESS
+            </span>
+
+            <h2>
+                Know your health risk level.
+            </h2>
+
+            <p>
+                HealthSphere organizes selected health indicators
+                into simple awareness levels to help users understand
+                what action may be appropriate.
+            </p>
+
+        </div>
+
+
+        <!-- Risk Level Cards -->
+
+        <div class="risk-level-grid">
+
+            <!-- GREEN -->
+
+            <article
+                class="risk-level-card green"
+                data-risk="green"
+            >
+
+                <div class="risk-card-top">
+
+                    <div class="risk-symbol">
+                        ✓
+                    </div>
+
+                    <span class="risk-status">
+                        LEVEL 01
+                    </span>
+
+                </div>
+
+                <div class="risk-light green-light"></div>
+
+                <h3>
+                    Green
+                </h3>
+
+                <p>
+                    Low immediate concern based on the
+                    available information.
+                </p>
+
+                <div class="risk-action">
+                    <span>Recommended</span>
+                    <strong>
+                        Monitor & maintain healthy habits
+                    </strong>
+                </div>
+
+            </article>
+
+
+            <!-- YELLOW -->
+
+            <article
+                class="risk-level-card yellow"
+                data-risk="yellow"
+            >
+
+                <div class="risk-card-top">
+
+                    <div class="risk-symbol">
+                        !
+                    </div>
+
+                    <span class="risk-status">
+                        LEVEL 02
+                    </span>
+
+                </div>
+
+                <div class="risk-light yellow-light"></div>
+
+                <h3>
+                    Yellow
+                </h3>
+
+                <p>
+                    Symptoms or indicators should be
+                    monitored more closely.
+                </p>
+
+                <div class="risk-action">
+                    <span>Recommended</span>
+                    <strong>
+                        Consider professional consultation
+                    </strong>
+                </div>
+
+            </article>
+
+
+            <!-- RED -->
+
+            <article
+                class="risk-level-card red"
+                data-risk="red"
+            >
+
+                <div class="risk-card-top">
+
+                    <div class="risk-symbol">
+                        !
+                    </div>
+
+                    <span class="risk-status">
+                        LEVEL 03
+                    </span>
+
+                </div>
+
+                <div class="risk-light red-light"></div>
+
+                <h3>
+                    Red
+                </h3>
+
+                <p>
+                    Potential warning indicators requiring
+                    prompt professional attention.
+                </p>
+
+                <div class="risk-action">
+                    <span>Recommended</span>
+                    <strong>
+                        Seek appropriate medical attention
+                    </strong>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- Interactive Risk Panel -->
+
+        <div class="risk-analysis-panel">
+
+            <div class="analysis-header">
+
+                <div>
+
+                    <span class="mini-label">
+                        CURRENT HEALTH AWARENESS
+                    </span>
+
+                    <h3 id="current-risk-title">
+                        Select a risk level
+                    </h3>
+
+                </div>
+
+                <div
+                    id="current-risk-badge"
+                    class="current-risk-badge"
+                >
+                    —
+                </div>
+
+            </div>
+
+
+            <!-- Risk Meter -->
+
+            <div class="risk-meter-wrapper">
+
+                <div class="risk-meter-labels">
+
+                    <span>
+                        Low
+                    </span>
+
+                    <span>
+                        Moderate
+                    </span>
+
+                    <span>
+                        High
+                    </span>
+
+                </div>
+
+                <div class="risk-meter">
+
+                    <div
+                        id="risk-meter-progress"
+                        class="risk-meter-progress"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Dynamic Recommendation -->
+
+            <div
+                id="risk-recommendation"
+                class="risk-recommendation"
+            >
+
+                <div class="recommendation-icon">
+                    ♥
+                </div>
+
+                <div>
+
+                    <strong>
+                        Health awareness
+                    </strong>
+
+                    <p>
+                        Your risk information will appear here
+                        when an assessment is available.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Backend Ready Notice -->
+
+            <div class="backend-placeholder">
+
+                <div class="backend-icon">
+                    ⚙
+                </div>
+
+                <div>
+
+                    <strong>
+                        Future intelligent risk engine
+                    </strong>
+
+                    <p>
+                        This front-end module is ready to connect
+                        with a validated backend or clinical
+                        decision-support model in the future.
+                    </p>
+
+                </div>
+
+                <span class="backend-status">
+                    FRONT-END READY
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Disclaimer -->
+
+        <div class="risk-disclaimer">
+
+            <strong>
+                Important:
+            </strong>
+
+            This feature is designed for health awareness and
+            educational purposes. It does not diagnose medical
+            conditions or replace a qualified healthcare professional.
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
+
+
+<!-- =========================================================
+     PART 24 — FRONTEND TESTING & QUALITY ASSURANCE
+     ========================================================= -->
+
+<section
+    id="testing"
+    class="testing-section">
+
+    <div class="testing-container">
+
+        <!-- HEADER -->
+
+        <div class="testing-header">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    QUALITY ASSURANCE
+                </span>
+
+                <h2>
+                    Built to be
+                    <span>tested.</span>
+                </h2>
+
+                <p>
+                    Validate every major HealthSphere feature
+                    before deployment and demonstration.
+                </p>
+
+            </div>
+
+            <div class="testing-score-card">
+
+                <span>
+                    FRONTEND STATUS
+                </span>
+
+                <strong id="testingScore">
+                    0%
+                </strong>
+
+                <small id="testingStatus">
+                    Testing required
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="testing-progress-wrapper">
+
+            <div class="testing-progress-info">
+
+                <span>
+                    Testing Progress
+                </span>
+
+                <strong id="testingProgressText">
+                    0 / 16 completed
+                </strong>
+
+            </div>
+
+            <div class="testing-progress">
+
+                <div
+                    id="testingProgressBar"
+                    class="testing-progress-bar">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TEST CARDS -->
+
+        <div
+            id="testingGrid"
+            class="testing-grid">
+
+
+            <!-- 01 -->
+
+            <article
+                class="testing-card"
+                data-test="navigation">
+
+                <div class="testing-card-number">
+                    01
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Navigation
+                    </h3>
+
+                    <p>
+                        Check navbar links, buttons and
+                        section navigation.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 02 -->
+
+            <article
+                class="testing-card"
+                data-test="symptom">
+
+                <div class="testing-card-number">
+                    02
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Symptom Checker
+                    </h3>
+
+                    <p>
+                        Verify symptom selection and
+                        result generation.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 03 -->
+
+            <article
+                class="testing-card"
+                data-test="health">
+
+                <div class="testing-card-number">
+                    03
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Health Checker
+                    </h3>
+
+                    <p>
+                        Verify health assessment interactions.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 04 -->
+
+            <article
+                class="testing-card"
+                data-test="monitoring">
+
+                <div class="testing-card-number">
+                    04
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Health Monitoring
+                    </h3>
+
+                    <p>
+                        Check monitoring cards and
+                        user interactions.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 05 -->
+
+            <article
+                class="testing-card"
+                data-test="bp">
+
+                <div class="testing-card-number">
+                    05
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        BP Tracking
+                    </h3>
+
+                    <p>
+                        Verify blood pressure input,
+                        validation and display.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 06 -->
+
+            <article
+                class="testing-card"
+                data-test="diabetes">
+
+                <div class="testing-card-number">
+                    06
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Diabetes Tracking
+                    </h3>
+
+                    <p>
+                        Verify glucose tracking interface
+                        and interactions.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 07 -->
+
+            <article
+                class="testing-card"
+                data-test="reports">
+
+                <div class="testing-card-number">
+                    07
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Medical Reports
+                    </h3>
+
+                    <p>
+                        Verify report upload and
+                        preview interface.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 08 -->
+
+            <article
+                class="testing-card"
+                data-test="child">
+
+                <div class="testing-card-number">
+                    08
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Child Health
+                    </h3>
+
+                    <p>
+                        Check child health information
+                        and navigation.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 09 -->
+
+            <article
+                class="testing-card"
+                data-test="vaccination">
+
+                <div class="testing-card-number">
+                    09
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Vaccination
+                    </h3>
+
+                    <p>
+                        Verify vaccination cards and
+                        reminder interactions.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 10 -->
+
+            <article
+                class="testing-card"
+                data-test="reminders">
+
+                <div class="testing-card-number">
+                    10
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Health Reminders
+                    </h3>
+
+                    <p>
+                        Check reminder creation and
+                        interface feedback.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 11 -->
+
+            <article
+                class="testing-card"
+                data-test="medicine">
+
+                <div class="testing-card-number">
+                    11
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Medicine Information
+                    </h3>
+
+                    <p>
+                        Verify medicine search and
+                        information interface.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 12 -->
+
+            <article
+                class="testing-card"
+                data-test="map">
+
+                <div class="testing-card-number">
+                    12
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Healthcare Map
+                    </h3>
+
+                    <p>
+                        Check healthcare location
+                        interface and map controls.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 13 -->
+
+            <article
+                class="testing-card"
+                data-test="language">
+
+                <div class="testing-card-number">
+                    13
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Multilingual Support
+                    </h3>
+
+                    <p>
+                        Verify language selection and
+                        interface switching.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 14 -->
+
+            <article
+                class="testing-card"
+                data-test="voice">
+
+                <div class="testing-card-number">
+                    14
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Voice Interface
+                    </h3>
+
+                    <p>
+                        Check microphone controls and
+                        voice interaction.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 15 -->
+
+            <article
+                class="testing-card"
+                data-test="privacy">
+
+                <div class="testing-card-number">
+                    15
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        Privacy Controls
+                    </h3>
+
+                    <p>
+                        Verify consent controls and
+                        data management.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+
+            <!-- 16 -->
+
+            <article
+                class="testing-card"
+                data-test="pwa">
+
+                <div class="testing-card-number">
+                    16
+                </div>
+
+                <div class="testing-card-content">
+
+                    <h3>
+                        PWA / Offline
+                    </h3>
+
+                    <p>
+                        Verify service worker, offline
+                        mode and installation.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="testing-check-btn">
+
+                    Mark Passed
+
+                </button>
+
+            </article>
+
+        </div>
+
+
+        <!-- FINAL CHECK -->
+
+        <div
+            id="testingComplete"
+            class="testing-complete"
+            hidden>
+
+            <div class="testing-complete-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <strong>
+                    Frontend testing completed
+                </strong>
+
+                <p>
+                    All listed HealthSphere frontend
+                    checkpoints have been manually verified.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+
+
+<!-- =========================================================
+     MULTILINGUAL + VOICE ACCESSIBILITY
+     ========================================================= -->
+
+<section id="language-voice" class="language-voice-section">
+
+    <div class="section-heading language-heading">
+
+        <span class="section-eyebrow">
+            ACCESS FOR EVERYONE
+        </span>
+
+        <h2>
+            Healthcare that
+            <span>speaks your language.</span>
+        </h2>
+
+        <p>
+            Choose your preferred language or use voice interaction
+            to make essential healthcare information easier to access.
+        </p>
+
+    </div>
+
+
+    <div class="language-voice-container">
+
+
+        <!-- =================================================
+             LANGUAGE PANEL
+             ================================================= -->
+
+        <div class="language-panel">
+
+            <div class="language-panel-header">
+
+                <div class="language-header-icon">
+                    文
+                </div>
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        LANGUAGE
+                    </span>
+
+                    <h3>
+                        Choose your language
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <p class="language-description">
+                Select the language you are most comfortable
+                using for healthcare information.
+            </p>
+
+
+            <!-- LANGUAGE GRID -->
+
+            <div class="language-grid">
+
+
+                <button
+                    type="button"
+                    class="language-option active"
+                    data-language="English"
+                    data-code="en">
+
+                    <span class="language-symbol">
+                        EN
+                    </span>
+
+                    <span class="language-name">
+                        English
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Hindi"
+                    data-code="hi">
+
+                    <span class="language-symbol">
+                        हि
+                    </span>
+
+                    <span class="language-name">
+                        हिन्दी
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Bengali"
+                    data-code="bn">
+
+                    <span class="language-symbol">
+                        বাং
+                    </span>
+
+                    <span class="language-name">
+                        বাংলা
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Assamese"
+                    data-code="as">
+
+                    <span class="language-symbol">
+                        অ
+                    </span>
+
+                    <span class="language-name">
+                        অসমীয়া
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Tamil"
+                    data-code="ta">
+
+                    <span class="language-symbol">
+                        த
+                    </span>
+
+                    <span class="language-name">
+                        தமிழ்
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Telugu"
+                    data-code="te">
+
+                    <span class="language-symbol">
+                        తె
+                    </span>
+
+                    <span class="language-name">
+                        తెలుగు
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Marathi"
+                    data-code="mr">
+
+                    <span class="language-symbol">
+                        म
+                    </span>
+
+                    <span class="language-name">
+                        मराठी
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="language-option"
+                    data-language="Gujarati"
+                    data-code="gu">
+
+                    <span class="language-symbol">
+                        ગુ
+                    </span>
+
+                    <span class="language-name">
+                        ગુજરાતી
+                    </span>
+
+                    <span class="language-check">
+                        ✓
+                    </span>
+
+                </button>
+
+
+            </div>
+
+
+            <div class="selected-language-card">
+
+                <span class="selected-language-icon">
+                    ✓
+                </span>
+
+                <div>
+
+                    <small>
+                        CURRENT LANGUAGE
+                    </small>
+
+                    <strong id="selectedLanguage">
+                        English
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             VOICE PANEL
+             ================================================= -->
+
+        <div class="voice-panel">
+
+            <div class="voice-panel-top">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        VOICE ASSISTANT
+                    </span>
+
+                    <h3>
+                        Speak instead of typing
+                    </h3>
+
+                </div>
+
+                <div class="voice-status-badge">
+
+                    <span
+                        class="voice-status-dot"
+                        id="voiceStatusDot">
+                    </span>
+
+                    <span id="voiceStatus">
+                        Ready
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <p class="voice-description">
+                Use your voice to interact with the healthcare
+                assistant. Voice functionality can later be
+                connected to a multilingual AI service.
+            </p>
+
+
+            <!-- VOICE VISUALIZER -->
+
+            <div
+                class="voice-visualizer"
+                id="voiceVisualizer">
+
+                <div class="voice-circle">
+
+                    <div class="voice-inner-circle">
+
+                        <span class="voice-microphone">
+                            🎙
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="voice-wave wave-one"></div>
+
+                <div class="voice-wave wave-two"></div>
+
+                <div class="voice-wave wave-three"></div>
+
+            </div>
+
+
+            <!-- VOICE BUTTON -->
+
+            <button
+                type="button"
+                class="voice-button"
+                id="voiceButton">
+
+                <span class="voice-button-icon">
+                    🎙
+                </span>
+
+                <span id="voiceButtonText">
+                    Start speaking
+                </span>
+
+            </button>
+
+
+            <div class="voice-transcript-container">
+
+                <div class="transcript-header">
+
+                    <span>
+                        YOUR MESSAGE
+                    </span>
+
+                    <button
+                        type="button"
+                        id="clearVoiceText">
+
+                        Clear
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="voice-transcript"
+                    id="voiceTranscript">
+
+                    <span class="transcript-placeholder">
+                        Your spoken message will appear here...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="voice-info">
+
+                <span>
+                    ⓘ
+                </span>
+
+                <p>
+                    Voice recognition depends on browser support
+                    and microphone permission.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ACCESSIBILITY FEATURES
+         ===================================================== -->
+
+    <div class="accessibility-strip">
+
+        <div class="accessibility-intro">
+
+            <span class="section-eyebrow">
+                ACCESSIBILITY
+            </span>
+
+            <h3>
+                Designed for real-world users
+            </h3>
+
+        </div>
+
+
+        <div class="accessibility-features">
+
+
+            <div class="accessibility-feature">
+
+                <span class="accessibility-feature-icon">
+                    A
+                </span>
+
+                <div>
+
+                    <strong>
+                        Easy to read
+                    </strong>
+
+                    <small>
+                        Clear typography
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="accessibility-feature">
+
+                <span class="accessibility-feature-icon">
+                    ◉
+                </span>
+
+                <div>
+
+                    <strong>
+                        Voice enabled
+                    </strong>
+
+                    <small>
+                        Hands-free interaction
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="accessibility-feature">
+
+                <span class="accessibility-feature-icon">
+                    文
+                </span>
+
+                <div>
+
+                    <strong>
+                        Multilingual
+                    </strong>
+
+                    <small>
+                        Regional language ready
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="accessibility-feature">
+
+                <span class="accessibility-feature-icon">
+                    ◇
+                </span>
+
+                <div>
+
+                    <strong>
+                        Simple navigation
+                    </strong>
+
+                    <small>
+                        Designed for everyone
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     HEALTH ANALYTICS DASHBOARD
+     ========================================================= -->
+
+<section id="analytics" class="analytics-section">
+
+    <div class="section-heading analytics-heading">
+
+        <span class="section-eyebrow">
+            HEALTH INTELLIGENCE
+        </span>
+
+        <h2>
+            Understand your
+            <span>health journey.</span>
+        </h2>
+
+        <p>
+            Track important health indicators, monitor progress,
+            and understand your health activity through simple
+            visual insights.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         ANALYTICS TOP BAR
+         ===================================================== -->
+
+    <div class="analytics-topbar">
+
+        <div class="analytics-user">
+
+            <div class="analytics-avatar">
+                HS
+            </div>
+
+            <div>
+
+                <small>
+                    HEALTH OVERVIEW
+                </small>
+
+                <strong>
+                    Personal Health Dashboard
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="analytics-period">
+
+            <button
+                type="button"
+                class="period-button active"
+                data-period="7">
+                7 Days
+            </button>
+
+            <button
+                type="button"
+                class="period-button"
+                data-period="30">
+                30 Days
+            </button>
+
+            <button
+                type="button"
+                class="period-button"
+                data-period="90">
+                90 Days
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEALTH METRIC CARDS
+         ===================================================== -->
+
+    <div class="health-metrics-grid">
+
+
+        <!-- BLOOD PRESSURE -->
+
+        <div class="health-metric-card">
+
+            <div class="metric-card-top">
+
+                <div class="metric-icon bp-icon">
+                    ♥
+                </div>
+
+                <span class="metric-status">
+                    Normal
+                </span>
+
+            </div>
+
+            <div class="metric-label">
+                Blood Pressure
+            </div>
+
+            <div class="metric-value">
+                <strong id="analyticsBP">
+                    118/76
+                </strong>
+
+                <span>
+                    mmHg
+                </span>
+            </div>
+
+            <div class="metric-footer">
+
+                <span class="metric-positive">
+                    ↑ Stable
+                </span>
+
+                <span>
+                    Last reading
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- BLOOD GLUCOSE -->
+
+        <div class="health-metric-card">
+
+            <div class="metric-card-top">
+
+                <div class="metric-icon sugar-icon">
+                    ◉
+                </div>
+
+                <span class="metric-status">
+                    Healthy
+                </span>
+
+            </div>
+
+            <div class="metric-label">
+                Blood Glucose
+            </div>
+
+            <div class="metric-value">
+
+                <strong id="analyticsSugar">
+                    94
+                </strong>
+
+                <span>
+                    mg/dL
+                </span>
+
+            </div>
+
+            <div class="metric-footer">
+
+                <span class="metric-positive">
+                    ✓ Within range
+                </span>
+
+                <span>
+                    Latest reading
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEALTH SCORE -->
+
+        <div class="health-metric-card health-score-card">
+
+            <div class="metric-card-top">
+
+                <div class="metric-icon score-icon">
+                    ✦
+                </div>
+
+                <span class="metric-status">
+                    Good
+                </span>
+
+            </div>
+
+            <div class="metric-label">
+                Wellness Score
+            </div>
+
+            <div class="metric-value">
+
+                <strong id="healthScore">
+                    82
+                </strong>
+
+                <span>
+                    /100
+                </span>
+
+            </div>
+
+            <div class="score-progress">
+
+                <div
+                    class="score-progress-fill"
+                    id="scoreProgress">
+                </div>
+
+            </div>
+
+            <div class="metric-footer">
+
+                <span class="metric-positive">
+                    ↑ 6% this month
+                </span>
+
+                <span>
+                    Overall
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- HEALTH ACTIVITY -->
+
+        <div class="health-metric-card">
+
+            <div class="metric-card-top">
+
+                <div class="metric-icon activity-icon">
+                    ◇
+                </div>
+
+                <span class="metric-status">
+                    Active
+                </span>
+
+            </div>
+
+            <div class="metric-label">
+                Health Activity
+            </div>
+
+            <div class="metric-value">
+
+                <strong>
+                    24
+                </strong>
+
+                <span>
+                    activities
+                </span>
+
+            </div>
+
+            <div class="metric-footer">
+
+                <span class="metric-positive">
+                    ✓ On track
+                </span>
+
+                <span>
+                    This month
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ANALYTICS MAIN GRID
+         ===================================================== -->
+
+    <div class="analytics-main-grid">
+
+
+        <!-- =================================================
+             HEALTH TREND
+             ================================================= -->
+
+        <div class="analytics-card trend-card">
+
+            <div class="analytics-card-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        HEALTH TREND
+                    </span>
+
+                    <h3>
+                        Wellness progress
+                    </h3>
+
+                </div>
+
+                <span class="trend-indicator">
+                    ↑ Improving
+                </span>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <div class="chart-y-axis">
+
+                    <span>
+                        100
+                    </span>
+
+                    <span>
+                        75
+                    </span>
+
+                    <span>
+                        50
+                    </span>
+
+                    <span>
+                        25
+                    </span>
+
+                    <span>
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="chart-area">
+
+                    <div class="chart-grid-line"></div>
+                    <div class="chart-grid-line"></div>
+                    <div class="chart-grid-line"></div>
+                    <div class="chart-grid-line"></div>
+                    <div class="chart-grid-line"></div>
+
+
+                    <svg
+                        class="health-chart"
+                        viewBox="0 0 700 240"
+                        preserveAspectRatio="none">
+
+                        <defs>
+
+                            <linearGradient
+                                id="healthAreaGradient"
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="1">
+
+                                <stop
+                                    offset="0%"
+                                    stop-opacity=".20" />
+
+                                <stop
+                                    offset="100%"
+                                    stop-opacity="0" />
+
+                            </linearGradient>
+
+                        </defs>
+
+
+                        <path
+                            class="chart-area-fill"
+                            d="
+                            M0,185
+                            C60,170 90,160 140,165
+                            C190,170 220,130 270,145
+                            C320,160 350,125 400,130
+                            C450,135 480,105 525,112
+                            C575,120 615,82 700,65
+                            L700,240
+                            L0,240
+                            Z
+                            ">
+                        </path>
+
+
+                        <path
+                            class="chart-line"
+                            d="
+                            M0,185
+                            C60,170 90,160 140,165
+                            C190,170 220,130 270,145
+                            C320,160 350,125 400,130
+                            C450,135 480,105 525,112
+                            C575,120 615,82 700,65
+                            ">
+                        </path>
+
+
+                        <circle
+                            class="chart-point"
+                            cx="700"
+                            cy="65"
+                            r="5">
+                        </circle>
+
+                    </svg>
+
+
+                    <div class="chart-x-axis">
+
+                        <span>
+                            Mon
+                        </span>
+
+                        <span>
+                            Tue
+                        </span>
+
+                        <span>
+                            Wed
+                        </span>
+
+                        <span>
+                            Thu
+                        </span>
+
+                        <span>
+                            Fri
+                        </span>
+
+                        <span>
+                            Sat
+                        </span>
+
+                        <span>
+                            Sun
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             HEALTH DISTRIBUTION
+             ================================================= -->
+
+        <div class="analytics-card distribution-card">
+
+            <div class="analytics-card-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        ACTIVITY
+                    </span>
+
+                    <h3>
+                        Health activity
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="activity-donut-container">
+
+                <div class="activity-donut">
+
+                    <div class="donut-center">
+
+                        <strong>
+                            24
+                        </strong>
+
+                        <span>
+                            Activities
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="activity-legend">
+
+                    <div class="legend-item">
+
+                        <span class="legend-dot monitoring"></span>
+
+                        <div>
+
+                            <strong>
+                                Monitoring
+                            </strong>
+
+                            <small>
+                                10 activities
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-dot reminders"></span>
+
+                        <div>
+
+                            <strong>
+                                Reminders
+                            </strong>
+
+                            <small>
+                                7 activities
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-dot reports"></span>
+
+                        <div>
+
+                            <strong>
+                                Reports
+                            </strong>
+
+                            <small>
+                                4 activities
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="legend-item">
+
+                        <span class="legend-dot checks"></span>
+
+                        <div>
+
+                            <strong>
+                                Health Checks
+                            </strong>
+
+                            <small>
+                                3 activities
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         INSIGHT CARDS
+         ===================================================== -->
+
+    <div class="health-insights">
+
+        <div class="insights-heading">
+
+            <div>
+
+                <span class="section-eyebrow">
+                    SMART INSIGHTS
+                </span>
+
+                <h3>
+                    Your health highlights
+                </h3>
+
+            </div>
+
+            <span class="insight-powered">
+                Frontend prototype
+            </span>
+
+        </div>
+
+
+        <div class="insight-grid">
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <strong>
+                        Consistent monitoring
+                    </strong>
+
+                    <p>
+                        Your recent health readings
+                        have been recorded consistently.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    ↗
+                </div>
+
+                <div>
+
+                    <strong>
+                        Positive trend
+                    </strong>
+
+                    <p>
+                        Your wellness score shows
+                        an improving trend.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="insight-card">
+
+                <div class="insight-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <strong>
+                        Stay updated
+                    </strong>
+
+                    <p>
+                        Keep your health records and
+                        reminders up to date.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         BACKEND INTEGRATION NOTE
+         ===================================================== -->
+
+    <div class="analytics-integration">
+
+        <div class="integration-icon">
+            ◈
+        </div>
+
+        <div>
+
+            <strong>
+                Ready for intelligent health analytics
+            </strong>
+
+            <p>
+                This dashboard is currently powered by frontend
+                demonstration data. It can later connect to
+                authenticated user records, APIs, databases,
+                health devices and an AI analytics engine.
+            </p>
+
+        </div>
+
+        <span class="integration-status">
+            API READY
+        </span>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     PRIVACY & DATA SECURITY
+     ========================================================= -->
+
+<section id="privacy" class="privacy-section">
+
+    <div class="privacy-container">
+
+        <!-- =================================================
+             PRIVACY HEADER
+             ================================================= -->
+
+        <div class="privacy-heading">
+
+            <div class="privacy-heading-content">
+
+                <span class="section-eyebrow">
+                    PRIVACY FIRST
+                </span>
+
+                <h2>
+                    Your health data,
+                    <span>your control.</span>
+                </h2>
+
+                <p>
+                    HealthSphere is designed with privacy and
+                    transparency in mind. You decide what information
+                    is shared, stored, and managed.
+                </p>
+
+            </div>
+
+
+            <div class="privacy-security-badge">
+
+                <div class="security-badge-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <small>
+                        SECURITY STATUS
+                    </small>
+
+                    <strong>
+                        Privacy Protected
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PRIVACY TRUST CARDS
+             ================================================= -->
+
+        <div class="privacy-trust-grid">
+
+
+            <div class="privacy-trust-card">
+
+                <div class="privacy-trust-icon">
+                    🔒
+                </div>
+
+                <div>
+
+                    <h3>
+                        Private by design
+                    </h3>
+
+                    <p>
+                        Your health information should only be
+                        accessible to you and authorized services.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="privacy-trust-card">
+
+                <div class="privacy-trust-icon">
+                    ◈
+                </div>
+
+                <div>
+
+                    <h3>
+                        Transparent controls
+                    </h3>
+
+                    <p>
+                        Clear controls help you understand how
+                        your information is handled.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="privacy-trust-card">
+
+                <div class="privacy-trust-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Consent focused
+                    </h3>
+
+                    <p>
+                        Important data-sharing actions require
+                        clear user consent.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =================================================
+             PRIVACY CONTROL PANEL
+             ================================================= -->
+
+        <div class="privacy-control-panel">
+
+            <div class="privacy-panel-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        DATA CONTROLS
+                    </span>
+
+                    <h3>
+                        Manage your privacy
+                    </h3>
+
+                </div>
+
+                <span class="privacy-demo-label">
+                    FRONTEND DEMO
+                </span>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONSENT
+                 ================================================= -->
+
+            <div class="privacy-control-row">
+
+                <div class="privacy-control-info">
+
+                    <div class="privacy-control-icon">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Health data consent
+                        </strong>
+
+                        <p>
+                            Allow HealthSphere to use your health
+                            information for personalized features.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="privacy-toggle">
+
+                    <input
+                        type="checkbox"
+                        id="healthConsentToggle"
+                        checked>
+
+                    <span class="privacy-toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- =================================================
+                 ANALYTICS
+                 ================================================= -->
+
+            <div class="privacy-control-row">
+
+                <div class="privacy-control-info">
+
+                    <div class="privacy-control-icon">
+                        ◌
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Anonymous analytics
+                        </strong>
+
+                        <p>
+                            Allow anonymous usage information to
+                            improve the application experience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="privacy-toggle">
+
+                    <input
+                        type="checkbox"
+                        id="analyticsConsentToggle">
+
+                    <span class="privacy-toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- =================================================
+                 PERSONALIZATION
+                 ================================================= -->
+
+            <div class="privacy-control-row">
+
+                <div class="privacy-control-info">
+
+                    <div class="privacy-control-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Personalized recommendations
+                        </strong>
+
+                        <p>
+                            Use your saved preferences to provide
+                            more relevant health information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="privacy-toggle">
+
+                    <input
+                        type="checkbox"
+                        id="personalizationToggle"
+                        checked>
+
+                    <span class="privacy-toggle-slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- =================================================
+                 DATA MANAGEMENT
+                 ================================================= -->
+
+            <div class="privacy-data-actions">
+
+                <div>
+
+                    <strong>
+                        Manage stored information
+                    </strong>
+
+                    <p>
+                        Review or remove locally stored
+                        demonstration data.
+                    </p>
+
+                </div>
+
+
+                <div class="privacy-action-buttons">
+
+                    <button
+                        type="button"
+                        class="privacy-action-btn secondary"
+                        id="viewDataBtn">
+
+                        View Data
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="privacy-action-btn danger"
+                        id="deleteDataBtn">
+
+                        Delete Data
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SECURITY ARCHITECTURE
+             ================================================= -->
+
+        <div class="security-architecture">
+
+            <div class="security-architecture-header">
+
+                <div>
+
+                    <span class="section-eyebrow">
+                        SECURITY ARCHITECTURE
+                    </span>
+
+                    <h3>
+                        Built for responsible healthcare technology
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="security-flow">
+
+                <div class="security-flow-item">
+
+                    <div class="security-flow-number">
+                        01
+                    </div>
+
+                    <strong>
+                        User Consent
+                    </strong>
+
+                    <span>
+                        Clear permission
+                    </span>
+
+                </div>
+
+
+                <div class="security-flow-line"></div>
+
+
+                <div class="security-flow-item">
+
+                    <div class="security-flow-number">
+                        02
+                    </div>
+
+                    <strong>
+                        Secure API
+                    </strong>
+
+                    <span>
+                        Backend integration
+                    </span>
+
+                </div>
+
+
+                <div class="security-flow-line"></div>
+
+
+                <div class="security-flow-item">
+
+                    <div class="security-flow-number">
+                        03
+                    </div>
+
+                    <strong>
+                        Protected Storage
+                    </strong>
+
+                    <span>
+                        Authorized access
+                    </span>
+
+                </div>
+
+
+                <div class="security-flow-line"></div>
+
+
+                <div class="security-flow-item">
+
+                    <div class="security-flow-number">
+                        04
+                    </div>
+
+                    <strong>
+                        User Control
+                    </strong>
+
+                    <span>
+                        Manage your data
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             EMERGENCY DISCLAIMER
+             ================================================= -->
+
+        <div class="privacy-disclaimer">
+
+            <div class="disclaimer-icon">
+                !
+            </div>
+
+            <div>
+
+                <strong>
+                    Important health information
+                </strong>
+
+                <p>
+                    HealthSphere is designed to support health
+                    awareness and information access. It is not a
+                    replacement for a qualified healthcare professional.
+                    In an emergency, seek appropriate medical assistance.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             BACKEND INTEGRATION
+             ================================================= -->
+
+        <div class="privacy-backend-ready">
+
+            <div class="backend-ready-icon">
+                ◇
+            </div>
+
+            <div>
+
+                <strong>
+                    Backend integration ready
+                </strong>
+
+                <p>
+                    Authentication, encrypted communication,
+                    secure database storage, role-based access,
+                    consent logging and audit trails can be connected
+                    here during backend development.
+                </p>
+
+            </div>
+
+            <span>
+                API READY
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
